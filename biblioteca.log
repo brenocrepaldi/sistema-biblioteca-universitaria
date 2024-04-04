@@ -2,3 +2,9 @@
 2024-04-04 07:48:25,600 - INFO - Livro adicionado ao catálogo: 1984
 2024-04-04 07:48:25,600 - INFO - Recebida solicitação para autenticar usuário: vitor__
 2024-04-04 07:48:25,600 - INFO - Usuário autenticado: vitor__
+2024-04-04 10:12:51,486 - INFO - Recebida solicitação para adicionar livro: 1984
+2024-04-04 10:12:51,486 - INFO - Livro adicionado ao catálogo: 1984
+2024-04-04 10:12:51,486 - INFO - Recebida solicitação para autenticar usuário: vitor__
+2024-04-04 10:12:51,486 - INFO - Usuário autenticado: vitor__
+2024-04-04 10:12:51,486 - INFO - Recebida solicitação para fazer reserva: 1984 por vitor__
+2024-04-04 10:12:51,486 - INFO - Reserva realizada com sucesso: Livro: 1984, Usuário: vitor__

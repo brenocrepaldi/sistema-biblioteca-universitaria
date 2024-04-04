@@ -4,9 +4,9 @@ import logging
 from model.livro import Livro
 from model.reserva import Reserva
 from model.usuario import Usuario
-from services.autenticacao_service import AutenticacaoProcessador, AutenticacaoReceptor
-from services.catalogo_sevice import CatalogoProcessador, CatalogoReceptor
-from services.reserva_service import ReservaProcessador, ReservaReceptor
+from services.autenticacao_service import AutenticacaoService
+from services.catalogo_sevice import CatalogoService
+from services.reserva_service import ReservaService
 
 
 # função de condiguração do logger
@@ -26,24 +26,19 @@ def main():
     configurar_logger()
 
     # Inicialização dos receptores e processadores
-    catalogo_receptor = CatalogoReceptor()
-    catalogo_processador = CatalogoProcessador(catalogo_receptor)
-
-    autenticacao_receptor = AutenticacaoReceptor()
-    autenticacao_processador = AutenticacaoProcessador(autenticacao_receptor)
-
-    reserva_receptor = ReservaReceptor()
-    reserva_processador = ReservaProcessador(reserva_receptor)
+    catalogo_de_livros = CatalogoService()
+    autenticacao_do_usuario = AutenticacaoService()
+    reserva_de_livros = ReservaService()
 
     # Exemplo de uso dos processadores
     livro_info = Livro("1984", "George Orwell", 2022, "1234567890")
-    catalogo_processador.adicionar_livro(livro_info)
+    catalogo_de_livros.adicionar_livro(livro_info)
 
     usuario_info = Usuario("vitor__", "senha1234", "Vitor Silva")
-    autenticacao_processador.autenticar_usuario(usuario_info)
+    autenticacao_do_usuario.autenticar_usuario(usuario_info)
 
     reserva_info = Reserva(livro_info, usuario_info)
-    reserva_processador.fazer_reserva(reserva_info)
+    reserva_de_livros.fazer_reserva(reserva_info)
 
 
 if __name__ == "__main__":

@@ -10,7 +10,7 @@ class ReservaReceptor:
     def fazer_reserva(self, reserva_info):
         # O receptor recebe a solicitação de fazer uma reserva e registra uma mensagem de log
         logger.info(
-            f"Recebida solicitação para fazer reserva: {reserva_info['livro']['titulo']} por {reserva_info['usuario']['username']}"
+            f"Recebida solicitação para fazer reserva: {reserva_info.livro.titulo} por {reserva_info.usuario.username}"
         )
 
 
@@ -23,7 +23,7 @@ class ReservaProcessador:
         self.receptor.fazer_reserva(reserva_info)
         # Após a reserva ser feita com sucesso, o processador registra uma mensagem de log
         logger.info(
-            f"Reserva realizada com sucesso: Livro: {reserva_info['livro']['titulo']}, Usuário: {reserva_info['usuario']['username']}"
+            f"Reserva realizada com sucesso: Livro: {reserva_info.livro.titulo}, Usuário: {reserva_info.usuario.username}"
         )
 
 
