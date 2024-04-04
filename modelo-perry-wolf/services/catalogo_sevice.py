@@ -23,7 +23,7 @@ class CatalogoProcessador:
         logger.info(f"Livro adicionado ao catálogo: {livro_info.titulo}")
 
 
-class CatalogoService:
+class CatalogoConector:
     def __init__(self):
         # Inicializa o receptor e o processador do serviço de catálogo
         self.receptor = CatalogoReceptor()

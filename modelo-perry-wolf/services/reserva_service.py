@@ -27,7 +27,7 @@ class ReservaProcessador:
         )
 
 
-class ReservaService:
+class ReservaConector:
     def __init__(self):
         # Inicializa o receptor e o processador do serviço de reserva
         self.receptor = ReservaReceptor()

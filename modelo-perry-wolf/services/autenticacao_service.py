@@ -25,7 +25,7 @@ class AutenticacaoProcessador:
         logger.info(f"Usuário autenticado: {usuario_info.username}")
 
 
-class AutenticacaoService:
+class AutenticacaoConector:
     def __init__(self):
         # Inicializa o receptor e o processador do serviço de autenticação
         self.receptor = AutenticacaoReceptor()
