@@ -1,0 +1,4 @@
+2024-04-04 07:48:25,600 - INFO - Recebida solicitação para adicionar livro: 1984
+2024-04-04 07:48:25,600 - INFO - Livro adicionado ao catálogo: 1984
+2024-04-04 07:48:25,600 - INFO - Recebida solicitação para autenticar usuário: vitor__
+2024-04-04 07:48:25,600 - INFO - Usuário autenticado: vitor__

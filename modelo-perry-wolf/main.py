@@ -1,6 +1,9 @@
 # importando as classes
 import logging
 
+from model.livro import Livro
+from model.reserva import Reserva
+from model.usuario import Usuario
 from services.autenticacao_service import AutenticacaoProcessador, AutenticacaoReceptor
 from services.catalogo_sevice import CatalogoProcessador, CatalogoReceptor
 from services.reserva_service import ReservaProcessador, ReservaReceptor
@@ -33,18 +36,13 @@ def main():
     reserva_processador = ReservaProcessador(reserva_receptor)
 
     # Exemplo de uso dos processadores
-    livro_info = {
-        "titulo": "Python for Beginners",
-        "autor": "John Doe",
-        "ano": 2022,
-        "isbn": "1234567890",
-    }
+    livro_info = Livro("1984", "George Orwell", 2022, "1234567890")
     catalogo_processador.adicionar_livro(livro_info)
 
-    usuario_info = {"username": "usuario", "password": "senha"}
+    usuario_info = Usuario("vitor__", "senha1234", "Vitor Silva")
     autenticacao_processador.autenticar_usuario(usuario_info)
 
-    reserva_info = {"livro": livro_info, "usuario": usuario_info}
+    reserva_info = Reserva(livro_info, usuario_info)
     reserva_processador.fazer_reserva(reserva_info)
 
 
