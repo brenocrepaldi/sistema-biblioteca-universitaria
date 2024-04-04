@@ -28,7 +28,7 @@ def main():
     # Inicialização dos conectores
     catalogo_de_livros = CatalogoConector()
     autenticacao_do_usuario = AutenticacaoConector()
-    reserva_de_livros = ReservaConector()
+    reserva = ReservaConector()
 
     # Criando as informações e aplicando os serviços
     livro_info = Livro("1984", "George Orwell", 2022, "1234567890")  # exemplo
@@ -38,7 +38,7 @@ def main():
     autenticacao_do_usuario.autenticar_usuario(usuario_info)
 
     reserva_info = Reserva(livro_info, usuario_info)
-    reserva_de_livros.fazer_reserva(reserva_info)
+    reserva.fazer_reserva(reserva_info)
 
 
 if __name__ == "__main__":
