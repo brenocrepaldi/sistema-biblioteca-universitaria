@@ -16,7 +16,7 @@ def configurar_logger():
 
     formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 
-    file_handler = logging.FileHandler("biblioteca.log")
+    file_handler = logging.FileHandler("modelo-perry-wolf/tests/biblioteca.log")
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
 
