@@ -1,6 +1,3 @@
-from models.usuario import Usuario
-
-
 class UsuarioView:
     @staticmethod
     def mostrar_usuarios(usuarios):

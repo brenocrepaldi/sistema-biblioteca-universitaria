@@ -1,6 +1,3 @@
-from models.reserva import Reserva
-
-
 class ReservaView:
     @staticmethod
     def mensagem_nao_encontrado(nome):
