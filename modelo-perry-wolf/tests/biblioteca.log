@@ -1,6 +1,0 @@
-2024-04-04 10:26:23,731 - INFO - Recebida solicita��o para adicionar livro: 1984
-2024-04-04 10:26:23,731 - INFO - Livro adicionado ao cat�logo: 1984
-2024-04-04 10:26:23,731 - INFO - Recebida solicita��o para autenticar usu�rio: vitor__
-2024-04-04 10:26:23,731 - INFO - Usu�rio autenticado: vitor__
-2024-04-04 10:26:23,731 - INFO - Recebida solicita��o para fazer reserva: 1984 por vitor__
-2024-04-04 10:26:23,731 - INFO - Reserva realizada com sucesso: Livro: 1984, Usu�rio: vitor__

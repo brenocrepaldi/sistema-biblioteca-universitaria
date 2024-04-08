@@ -1,38 +1,71 @@
-import logging
-
-logger = logging.getLogger(__name__)
+from models.reserva import Reserva
+from services.livro_sevice import LivroConector
+from services.usuario_service import UsuarioConector
 
 
 class ReservaReceptor:
-    def __init__(self):
-        pass
+    @staticmethod
+    def receber_dados():
+        titulo = input("\nTítulo do livro a ser reservado: ")
+        if not LivroConector.verificar_livro(titulo):
+            ReservaLogger.mensagem_nao_encontrado(titulo)
+        livro = LivroConector.buscar_livro(titulo)
 
-    def fazer_reserva(self, reserva_info):
-        # O receptor recebe a solicitação de fazer uma reserva e registra uma mensagem de log
-        logger.info(
-            f"Recebida solicitação para fazer reserva: {reserva_info.livro.titulo} por {reserva_info.usuario.username}"
-        )
+        username = input("Nome de usuario para realizar a reserva: ")
+        if not UsuarioConector.verificar_usuario(username):
+            ReservaLogger.mensagem_nao_encontrado(username)
+        usuario = UsuarioConector.buscar_usuario(username)
+
+        return {"livro": livro, "usuario": usuario}
 
 
 class ReservaProcessador:
-    def __init__(self, receptor):
-        self.receptor = receptor
+    reservas = []
 
-    def fazer_reserva(self, reserva_info):
-        # O processador delega a tarefa de fazer a reserva ao receptor
-        self.receptor.fazer_reserva(reserva_info)
-        # Após a reserva ser feita com sucesso, o processador registra uma mensagem de log
-        logger.info(
-            f"Reserva realizada com sucesso: Livro: {reserva_info.livro.titulo}, Usuário: {reserva_info.usuario.username}"
+    @classmethod
+    def processar_dados(cls, dados):
+        nova_reserva = Reserva(dados["livro"], dados["usuario"])
+        cls.reservas.append(nova_reserva)
+
+        ReservaLogger.mostrar_mensagem_reserva(nova_reserva)
+
+    @classmethod
+    def listar_reservas(cls):
+        if not cls.reservas:
+            ReservaLogger.mostrar_mensagem_vazio()
+        else:
+            ReservaLogger.mostrar_reservas(cls.reservas)
+
+
+class ReservaLogger:
+    @staticmethod
+    def mensagem_nao_encontrado(nome):
+        print(f"\n{nome} não encontrado")
+
+    @staticmethod
+    def mostrar_mensagem_reserva(reserva):
+        print(
+            f"\nReserva realizada com sucesso: livro: {reserva.livro.titulo}, usuário: {reserva.usuario.username}"
         )
+
+    @staticmethod
+    def mostrar_reservas(reservas):
+        print("\nLista de Reservas:")
+        for reserva in reservas:
+            print(
+                f"Nome: {reserva.usuario.nome_completo} | Livro: {reserva.livro.titulo}"
+            )
 
 
 class ReservaConector:
-    def __init__(self):
-        # Inicializa o receptor e o processador do serviço de reserva
-        self.receptor = ReservaReceptor()
-        self.processador = ReservaProcessador(self.receptor)
+    @staticmethod
+    def fazer_reserva():
+        receptor = ReservaReceptor()
+        processador = ReservaProcessador()
 
-    def fazer_reserva(self, reserva_info):
-        # O serviço recebe a solicitação de fazer uma reserva e a repassa ao processador
-        self.processador.fazer_reserva(reserva_info)
+        dados = receptor.receber_dados()
+        processador.processar_dados(dados)
+
+    @staticmethod
+    def listar_reservas():
+        ReservaProcessador.listar_reservas()

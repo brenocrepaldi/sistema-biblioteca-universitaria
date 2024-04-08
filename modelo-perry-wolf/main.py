@@ -1,44 +1,47 @@
-# importando as classes
-import logging
-
-from model.livro import Livro
-from model.reserva import Reserva
-from model.usuario import Usuario
-from services.autenticacao_service import AutenticacaoConector
-from services.catalogo_sevice import CatalogoConector
+from services.livro_sevice import LivroConector
 from services.reserva_service import ReservaConector
+from services.usuario_service import UsuarioConector
 
 
-# função de configuração do logger
-def configurar_logger():
-    logger = logging.getLogger()
-    logger.setLevel(logging.INFO)
+def menu(usuario_con, livro_con, reserva_con):
+    print("\nBiblioteca Universitária - Menu Principal")
+    print("1. Adicionar Livro")
+    print("2. Listar Livros")
+    print("3. Adicionar Usuário")
+    print("4. Listar Usuários")
+    print("5. Fazer Reserva")
+    print("6. Listar Reservas")
+    print("7. Sair")
 
-    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    while True:
+        opcao = int(input("\nEscolha uma opção: "))
 
-    file_handler = logging.FileHandler("modelo-perry-wolf/tests/biblioteca.log")
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
+        if opcao == 1:
+            livro_con.adicionar_livro()
+        elif opcao == 2:
+            livro_con.listar_livros()
+        elif opcao == 3:
+            usuario_con.autenticar_usuario()
+        elif opcao == 4:
+            usuario_con.listar_usuarios()
+        elif opcao == 5:
+            reserva_con.fazer_reserva()
+        elif opcao == 6:
+            reserva_con.listar_reservas()
+        elif opcao == 7:
+            print("Saindo do sistema...")
+            break
+        else:
+            print("Opção inválida. Por favor, tente novamente.")
 
 
 def main():
-    # Configuração do logger
-    configurar_logger()
+    # Instância dos controladores
+    usuario_con = UsuarioConector()
+    livro_con = LivroConector()
+    reserva_con = ReservaConector()
 
-    # Inicialização dos conectores
-    catalogo_de_livros = CatalogoConector()
-    autenticacao_do_usuario = AutenticacaoConector()
-    reserva = ReservaConector()
-
-    # Criando as informações e aplicando os serviços
-    livro_info = Livro("1984", "George Orwell", 2022, "1234567890")  # exemplo
-    catalogo_de_livros.adicionar_livro(livro_info)
-
-    usuario_info = Usuario("vitor__", "senha1234", "Vitor Silva")  # exemplo
-    autenticacao_do_usuario.autenticar_usuario(usuario_info)
-
-    reserva_info = Reserva(livro_info, usuario_info)
-    reserva.fazer_reserva(reserva_info)
+    menu(usuario_con, livro_con, reserva_con)
 
 
 if __name__ == "__main__":
