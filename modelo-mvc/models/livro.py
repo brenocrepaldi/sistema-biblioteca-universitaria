@@ -6,4 +6,4 @@ class Livro:
         self.codigo = codigo
 
     def __str__(self):
-        return f"Livro: {self.titulo}, Autor: {self.autor}, Ano: {self.ano}, Código: {self.codigo}"
+        return f"Título: {self.titulo}, Autor: {self.autor}, Ano: {self.ano}, Código: {self.codigo}"
