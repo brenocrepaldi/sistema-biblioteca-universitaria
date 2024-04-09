@@ -15,3 +15,5 @@ O módulo de Modelo de Processamento descreve como o sistema realiza suas opera�
 - **Classe Conectora**: Responsável por conectar as classes receptora e processadora, facilitando a comunicação entre elas e garantindo o funcionamento adequado do sistema como um todo.
 
 Essa estrutura modular proporciona uma separação clara de responsabilidades e facilita a manutenção, escalabilidade e extensibilidade do sistema.
+
+## Diagrama da Arquitetura
