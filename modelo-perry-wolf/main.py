@@ -16,23 +16,24 @@ def menu(usuario_con, livro_con, reserva_con):
     while True:
         opcao = int(input("\nEscolha uma opção: "))
 
-        if opcao == 1:
-            livro_con.adicionar_livro()
-        elif opcao == 2:
-            livro_con.listar_livros()
-        elif opcao == 3:
-            usuario_con.autenticar_usuario()
-        elif opcao == 4:
-            usuario_con.listar_usuarios()
-        elif opcao == 5:
-            reserva_con.fazer_reserva()
-        elif opcao == 6:
-            reserva_con.listar_reservas()
-        elif opcao == 7:
-            print("Saindo do sistema...")
-            break
-        else:
-            print("Opção inválida. Por favor, tente novamente.")
+        match opcao:
+            case 1:
+                livro_con.adicionar_livro()
+            case 2:
+                livro_con.listar_livros()
+            case 3:
+                usuario_con.autenticar_usuario()
+            case 4:
+                usuario_con.listar_usuarios()
+            case 5:
+                reserva_con.fazer_reserva()
+            case 6:
+                reserva_con.listar_reservas()
+            case 7:
+                print("Saindo do sistema...")
+                break
+            case _:
+                print("Opção inválida. Por favor, tente novamente.")
 
 
 def main():
