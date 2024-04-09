@@ -17,3 +17,4 @@ O módulo de Modelo de Processamento descreve como o sistema realiza suas opera�
 Essa estrutura modular proporciona uma separação clara de responsabilidades e facilita a manutenção, escalabilidade e extensibilidade do sistema.
 
 ## Diagrama da Arquitetura
+![Imagem do Diagrama da Arquitetura](https://github.com/brenocrepaldi/sistema-biblioteca-universitaria/blob/main/modelo-perry-wolf/assets/diagrama.png)
