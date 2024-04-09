@@ -1,7 +1,7 @@
 class ReservaView:
     @staticmethod
-    def mensagem_nao_encontrado(nome):
-        print(f"\n{nome} não encontrado")
+    def mostrar_mensagem_vazio():
+        print("\nNenhuma reserva cadastrada.")
 
     @staticmethod
     def mostrar_mensagem_reserva(reserva):
@@ -16,3 +16,7 @@ class ReservaView:
             print(
                 f"Nome: {reserva.usuario.nome_completo} | Livro: {reserva.livro.titulo}"
             )
+
+    @staticmethod
+    def mensagem_nao_encontrado(nome):
+        print(f"\n{nome} não encontrado")

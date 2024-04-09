@@ -10,15 +10,15 @@ class ReservaController:
     @classmethod
     def fazer_reserva(cls):
 
-        username = input("\nNome de usuario para realizar a reserva: ")
-        if not UsuarioController.verificar_usuario(username):
-            ReservaView.mensagem_nao_encontrado(username)
-        usuario = UsuarioController.buscar_usuario(username)
-
         titulo = input("Título do livro a ser reservado: ")
         if not LivroController.verificar_livro(titulo):
             ReservaView.mensagem_nao_encontrado(titulo)
         livro = LivroController.buscar_livro(titulo)
+
+        username = input("\nNome de usuario para realizar a reserva: ")
+        if not UsuarioController.verificar_usuario(username):
+            ReservaView.mensagem_nao_encontrado(username)
+        usuario = UsuarioController.buscar_usuario(username)
 
         nova_reserva = Reserva(livro, usuario)
 
