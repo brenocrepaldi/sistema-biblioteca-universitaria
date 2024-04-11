@@ -3,6 +3,8 @@
 Este é um sistema de reserva de livros desenvolvido em Python, utilizando os padrões Modelo-Visão-Controlador (MVC) e o proposto pro Perry e Wolf. O objetivo do sistema é permitir que alunos e professores de uma biblioteca universitária possam reservar livros de forma eficiente.
 Os arquivos de cada um dos modelos podem ser visualisados no repositório. Os dois tem o mesmo proósito e funcionalidades, porém, com arquiteturas diferentes.
 
+Dentro das pastas de cada modelo `/modelo-mvc` e `/modelo-perry-wolf` possui uma explicação detalhada nos arquivos `README.md` de como funcionam e seus módulos principais.
+
 ## Funcionalidades do Sistema:
 
 - **Adicionar Livro**: Esta funcionalidade permite aos bibliotecários adicionar novos livros ao catálogo da biblioteca. Ao adicionar um livro, são fornecidas informações detalhadas, como título, autor, ano de publicação e código do livro, garantindo uma catalogação precisa e abrangente dos materiais disponíveis.
